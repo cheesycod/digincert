@@ -28,7 +28,9 @@ function getExperiment(name) {
         document.title = r[name].title
 
         getScriptWithCache(name, serverHost + "/physics/" + r[name].path, function(textStatus, code ) {
-            console.log("Experiment was loaded with status of: " + textStatus + ". Code: " + code);
+            console.log("Experiment was loaded with status of: " + textStatus + ". Code: " + code)
+
+            document.querySelector("#experimentOptions").textContent = ""
 
             expClass = eval(r[name].class)
 
