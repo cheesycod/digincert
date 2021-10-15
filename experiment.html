@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="base.js"></script>
+    <p id="experiment-list">Loading experiment list</p>
+    <script defer>
+        setTimeout(() => listExperiments(), 1000)
+        getExperimentByQueryParam()
+    </script>
+
+    <!-- Experiment setup -->
+    <h1 id="desc"></h1>
+    <canvas id="renderCanvas" width="1000px" height="1000px"></canvas>
+    <div id="experimentOptions" style="margin-top: 100px">
+    </div>
+</html>

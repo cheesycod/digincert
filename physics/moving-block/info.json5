@@ -1,0 +1,12 @@
+// Experiment on moving blocks
+
+{
+    // Title of the experiment
+    title: "Moving Block Experiment",
+
+    // Path to the JS file for the experiment
+    path: "moving-block/experiment.js",
+
+    // Class name to be run in the experiment
+    class: "MovingBlock"
+}
