@@ -56,5 +56,3 @@ class MovingBlock {
         }
     }
 }
-
-Experiment = MovingBlock
