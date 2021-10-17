@@ -1,8 +1,13 @@
-const serverHost = "http://localhost:8000"
+if(window.location.protocol == "file:") {
+    var serverHost = "http://localhost:8000"
+}
+else {
+    var serverHost = window.location.protocol + "//" + window.location.host
+}
 
 const version = 1
 
-const infoFile = "/physics/info.min.json?v=" + version
+const infoFile = "/autogen/info.min.json?v=" + version
 
 var cache = {}
 
@@ -27,7 +32,7 @@ function getExperiment(name) {
 
         document.title = r[name].title
 
-        getScriptWithCache(name, serverHost + "/physics/" + r[name].path, function(textStatus, code ) {
+        getScriptWithCache(name, serverHost + "/" + r[name].subject + "/" + r[name].path, function(textStatus, code ) {
             console.log("Experiment was loaded with status of: " + textStatus + ". Code: " + code)
 
             document.querySelector("#experimentOptions").textContent = ""
@@ -70,21 +75,4 @@ function error(string, title) {
         document.title = "Bad Request"
     }
     document.write(`<p id='error'>${string}</p>`)
-}
-
-function listExperiments() {
-    eList = document.querySelector("#experiment-list")
-    console.log(eList)
-    fetch(serverHost + infoFile)
-    .then(r => r.json())
-    .then(r => {
-        console.log(r)
-        keys = Object.keys(r)
-        console.log("Experiment List: " + keys)
-        html = "Experiment List:<br><br>"
-        keys.forEach((v) => {
-            html += `<a href='#' onclick='getExperiment("${v}")'>${r[v].title}</a><br>`
-        })
-        eList.innerHTML = html
-    })
 }

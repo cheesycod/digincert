@@ -4,7 +4,7 @@ class MovingBlock {
         this.engine = new BABYLON.Engine(this.canvas, true, {preserveDrawingBuffer: true, stencil: true})
         this.scene = new BABYLON.Scene(this.engine);
         this.velocity = 0
-        this.expSpeed = 1
+        this.expSpeed = 0.1
     }
 
     createScene() {
@@ -47,9 +47,8 @@ class MovingBlock {
 
     updateScene() {
         // Updates the scene
-        //setTimeout(() => console.log("updateScene called with velocity of "+this.velocity), 1000)
         if(this.velocity) {
-            this.box.position.x = this.box.position.x + this.velocity*0.1;
+            this.box.position.x = this.box.position.x + this.velocity*0.001;
             if(document.visibilityState == "visible") {
                 setTimeout(() => this.updateScene(), this.expSpeed)
             }    

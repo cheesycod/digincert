@@ -9,4 +9,5 @@
 
     // Class name to be run in the experiment
     class: "MovingBlock"
+    
 }
